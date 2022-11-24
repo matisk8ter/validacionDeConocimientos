@@ -13,15 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Country {
-
 	@Id
-	private int id;
-
+	private String id;
 	private String name;
-
 	private String code;
-
-	private List<CyclistTeam> cyclingTeams;
-
-	private List<Cyclist> cyclists;
 }

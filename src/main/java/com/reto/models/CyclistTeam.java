@@ -13,13 +13,9 @@ import java.util.List;
 public class CyclistTeam {
 
 	@Id
-	private int id;
-
+	private String id;
 	private String name;
-
 	private String teamCode;
-
 	private Country country;
-
 	private List<Cyclist> cyclists;
 }

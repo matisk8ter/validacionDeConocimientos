@@ -13,13 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "ciclistas")
 public class Cyclist {
     @Id
-    private int id;
-
+    private String id;
     private String fullName;
-
     private String competitorNumber;
-
     private Country country;
-
     private CyclistTeam cyclingTeam;
 }
