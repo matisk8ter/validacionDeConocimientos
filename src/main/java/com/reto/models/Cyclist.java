@@ -16,6 +16,5 @@ public class Cyclist {
     private String id;
     private String fullName;
     private String competitorNumber;
-    private Country country;
-    private CyclistTeam cyclingTeam;
+    private String country;
 }

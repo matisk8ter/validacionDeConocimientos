@@ -4,8 +4,8 @@ import com.reto.dto.CountryDTO;
 import com.reto.dto.CyclistDTO;
 import com.reto.dto.CyclistTeamDTO;
 import com.reto.models.Country;
-import com.reto.models.CyclistTeam;
 import com.reto.models.Cyclist;
+import com.reto.models.CyclistTeam;
 import org.springframework.beans.BeanUtils;
 
 public class AppUtils {
@@ -35,7 +35,7 @@ public class AppUtils {
         BeanUtils.copyProperties(countryDTO, country);
         return country;
     }
-    public static Cyclist dtoToCyclist(CountryDTO cyclistDto){
+    public static Cyclist dtoToCyclist(CyclistDTO cyclistDto){
         Cyclist cyclist = new Cyclist();
         BeanUtils.copyProperties(cyclistDto, cyclist);
         return cyclist;

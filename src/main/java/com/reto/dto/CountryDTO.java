@@ -1,18 +1,18 @@
 package com.reto.dto;
 
-import com.reto.models.CyclistTeam;
-import com.reto.models.Cyclist;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CountryDTO {
-    private int id;
+
+    private String id;
 
     private String name;
 
     private String code;
 
-    private List<CyclistTeam> cyclingTeams;
-
-    private List<Cyclist> cyclists;
 }
