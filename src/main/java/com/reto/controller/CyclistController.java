@@ -1,9 +1,11 @@
 package com.reto.controller;
 
 import com.reto.dto.CyclistDTO;
+import com.reto.dto.CyclistTeamDTO;
 import com.reto.services.CyclistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -44,6 +46,13 @@ public class CyclistController {
         return service.delete(id)
                 .then(Mono.just( new ResponseEntity<Void>(HttpStatus.NO_CONTENT)))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Mono<CyclistDTO>> updateCyclist(@RequestBody CyclistDTO CyclistDTO, @PathVariable(value = "id") String idCyclist) {
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.update(CyclistDTO, idCyclist));
     }
 
 

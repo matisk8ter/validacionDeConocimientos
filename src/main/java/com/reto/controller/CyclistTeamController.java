@@ -1,10 +1,12 @@
 package com.reto.controller;
 
+import com.reto.dto.CountryDTO;
 import com.reto.dto.CyclistDTO;
 import com.reto.dto.CyclistTeamDTO;
 import com.reto.services.CyclistTeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -43,6 +45,14 @@ public class CyclistTeamController {
     public Mono<CyclistTeamDTO> addCyclistToTeam(@PathVariable("id") String id, @PathVariable("idCyclist") String idCyclist) {
         return service.addCyclistToTeamByTeamIDAndIdCylist(id, idCyclist);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Mono<CyclistTeamDTO>> updateTeam(@RequestBody CyclistTeamDTO cyclistTeamDTO, @PathVariable(value = "id") String idCyclist) {
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.update(cyclistTeamDTO, idCyclist));
+    }
+
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> delete(@PathVariable("id") String id){
         return service.delete(id)
