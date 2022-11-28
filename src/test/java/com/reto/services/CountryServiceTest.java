@@ -77,30 +77,35 @@ class CountryServiceTest {
     @Test
     void update() {
 
-//        Country country = new Country("1", "uy", "01A");
-//        Country countryNew = new Country("2", "fr", "02A");
-//
-//        when(repository.save(country))
-//                .thenReturn(Mono.just(country));
-//
-//        when(repository.findById("1"))
-//                .thenReturn(Mono.just(country));
-//
-//        when(repository.save(countryNew))
-//                .thenReturn(Mono.just(countryNew));
-//
-//
-//        StepVerifier
-//                .create(service.update(AppUtils.countryToDto(countryNew), country.getId()))
-//                .expectNextMatches(countryDTO ->
-//                        countryDTO.getId().equals("2") &&
-//                                countryDTO.getName().equals("fr") &&
-//                                countryDTO.getCode().equals("02A")
-//                ).expectComplete()
-//                .verify();
-   }
+        Country country = new Country();
+        country.setId("1");
+        country.setCode("1");
+        country.setName("Uru why");
 
-    @Test
-    void countryByCode() {
+        Country countryNew = new Country();
+        countryNew.setId("1");
+        countryNew.setCode("1");
+        countryNew.setName("Uruguay");
+
+        when(repository.save(country))
+                .thenReturn(Mono.just(country));
+
+        when(repository.findById(country.getId()))
+                .thenReturn(Mono.just(country));
+
+        when(repository.save(countryNew))
+                .thenReturn(Mono.just(countryNew));
+
+
+        StepVerifier
+                .create(service.update(AppUtils.countryToDto(countryNew), country.getId()))
+                .expectNextMatches(countryDTO ->
+                        countryDTO.getId().equals("1") &&
+                                countryDTO.getName().equals("Uruguay") &&
+                                countryDTO.getCode().equals("1")
+                ).expectComplete()
+                .verify();
     }
+
+
 }

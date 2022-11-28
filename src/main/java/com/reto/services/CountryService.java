@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 public class CountryService implements ICountry {
 
     @Autowired
-    private CountryRepository repository;
+     CountryRepository repository;
 
     @Override
     public Flux<CountryDTO> findAllCountry() {

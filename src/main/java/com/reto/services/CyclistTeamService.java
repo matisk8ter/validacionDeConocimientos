@@ -3,7 +3,6 @@ package com.reto.services;
 import com.reto.dto.CyclistDTO;
 import com.reto.dto.CyclistTeamDTO;
 import com.reto.interfaces.ICyclistTeam;
-import com.reto.models.Cyclist;
 import com.reto.models.CyclistTeam;
 import com.reto.repository.CountryRepository;
 import com.reto.repository.CyclingTeamRepository;
@@ -20,13 +19,13 @@ import java.util.concurrent.ExecutionException;
 public class CyclistTeamService implements ICyclistTeam {
 
     @Autowired
-    private CyclingTeamRepository repository;
+    CyclingTeamRepository repository;
 
     @Autowired
-    private CyclistRepository cyclistRepository;
+    CyclistRepository cyclistRepository;
 
     @Autowired
-    private CountryRepository countryRepository;
+    CountryRepository countryRepository;
 
     @Override
     public Flux<CyclistTeamDTO> findAllCyclingTeams() {

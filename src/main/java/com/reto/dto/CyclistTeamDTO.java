@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Data
@@ -14,8 +16,15 @@ import java.util.List;
 public class CyclistTeamDTO {
 
     private String id;
+
+    @NotBlank(message = "name is required")
     private String name;
+
+    @NotBlank(message = "teamCode Name is required")
     private String teamCode;
+
     private Country country;
+
+    @Size(max = 8)
     private List<Cyclist> cyclists;
 }

@@ -15,14 +15,14 @@ import reactor.core.publisher.Mono;
 public class CountryController {
 
     @Autowired
-    private CountryService service;
+    CountryService service;
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<Flux<CountryDTO>> findAllCountry() {
         return ResponseEntity.ok().body(service.findAllCountry());
     }
-    @GetMapping("/code/{code}")
-    public Mono<CountryDTO> findCountryByCode(@PathVariable(value = "code") String code) {
+    @GetMapping("/{code}")
+    public Mono<CountryDTO> findCountryByCode(@PathVariable("code") String code) {
         return service.countryByCode(code);
     }
 
