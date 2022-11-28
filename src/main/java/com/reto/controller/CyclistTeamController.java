@@ -43,6 +43,10 @@ public class CyclistTeamController {
     public Mono<CyclistTeamDTO> addCyclistToTeam(@PathVariable("id") String id, @PathVariable("idCyclist") String idCyclist) {
         return service.addCyclistToTeamByTeamIDAndIdCylist(id, idCyclist);
     }
+    @PutMapping("/update/{id}")
+    public Mono<CyclistTeamDTO> update(@RequestBody CyclistTeamDTO cyclistTeamDTO, @PathVariable("id") String id) {
+        return service.update(cyclistTeamDTO, id);
+    }
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> delete(@PathVariable("id") String id){
         return service.delete(id)
